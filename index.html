@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon</title>
+
+    <style>
+        .pokemon-card {
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .green-background {
+            background-color: #8BC34A;
+        }
+
+        .orange-background {
+            background-color: #FF9800;
+        }
+
+        .blue-background {
+            background-color: #03A9F4;
+        }
+
+        .dark-green-background {
+            background-color: #4CAF50;
+        }
+
+        .pokemon-image {
+            max-width: 100px;
+        }
+
+        .logo-container img {
+            max-width: 300px;
+            z-index: 2;
+            position: relative;
+            margin-bottom: 2%;
+        }
+
+        .red-line {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 10%;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="container text-center">
+        <div class="logo-container">
+            <div class="red-line"></div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/International_Pokémon_logo.svg"
+                alt="Pokémon Logo" class="img-fluid">
+        </div>
+
+        <div class="row">
+
+            <div class="col-sm-4">
+                <div class="pokemon-card green-background">
+                    <img src="https://img.pokemondb.net/sprites/black-white/normal/bulbasaur.png" alt="Bulbasaur"
+                        class="pokemon-image">
+                    <h5>#0001 - Bulbasaur</h5>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="pokemon-card green-background">
+                    <img src="https://img.pokemondb.net/sprites/black-white/normal/ivysaur.png" alt="Ivysaur"
+                        class="pokemon-image">
+                    <h5>#0002 - Ivysaur</h5>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="pokemon-card green-background">
+                    <img src="https://img.pokemondb.net/sprites/black-white/normal/venusaur.png" alt="Venusaur"
+                        class="pokemon-image">
+                    <h5>#0003 - Venusaur</h5>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+
+            <div class="col-sm-4">
+                <div class="pokemon-card orange-background">
+                    <img src="https://img.pokemondb.net/sprites/black-white/normal/charmander.png" alt="Charmander"
+                        class="pokemon-image">
+                    <h5>#0004 - Charmander</h5>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="pokemon-card orange-background">
+                    <img src="https://img.pokemondb.net/sprites/black-white/normal/charmeleon.png" alt="Charmeleon"
+                        class="pokemon-image">
+                    <h5>#0005 - Charmeleon</h5>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="pokemon-card orange-background">
+                    <img src="https://img.pokemondb.net/sprites/black-white/normal/charizard.png" alt="Charizard"
+                        class="pokemon-image">
+                    <h5>#0006 - Charizard</h5>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+
+            <div class="col-sm-4">
+                <div class="pokemon-card blue-background">
+                    <img src="https://img.pokemondb.net/sprites/black-white/normal/squirtle.png" alt="Squirtle"
+                        class="pokemon-image">
+                    <h5>#0007 - Squirtle</h5>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="pokemon-card blue-background">
+                    <img src="https://img.pokemondb.net/sprites/black-white/normal/wartortle.png" alt="Wartortle"
+                        class="pokemon-image">
+                    <h5>#0008 - Wartortle</h5>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="pokemon-card blue-background">
+                    <img src="https://img.pokemondb.net/sprites/black-white/normal/blastoise.png" alt="Blastoise"
+                        class="pokemon-image">
+                    <h5>#0009 - Blastoise</h5>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+
+            <div class="col-sm-4">
+                <div class="pokemon-card dark-green-background">
+                    <img src="https://img.pokemondb.net/sprites/black-white/normal/caterpie.png" alt="Caterpie"
+                        class="pokemon-image">
+                    <h5>#0010 - Caterpie</h5>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="pokemon-card dark-green-background">
+                    <img src="https://img.pokemondb.net/sprites/black-white/normal/metapod.png" alt="Metapod"
+                        class="pokemon-image">
+                    <h5>#0011 - Metapod</h5>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="pokemon-card dark-green-background">
+                    <img src="https://img.pokemondb.net/sprites/black-white/normal/butterfree.png" alt="Butterfree"
+                        class="pokemon-image">
+                    <h5>#0012 - Butterfree</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</body>
+
+</html>
