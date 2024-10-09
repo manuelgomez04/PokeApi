@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Pokémon Card</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         .pokemon-image {
             max-width: 100px;
@@ -12,94 +13,97 @@
 
         .logo-container img {
             max-width: 300px;
-            z-index: 2;
-            position: relative;
             margin-bottom: 2%;
+            position: relative;
+            z-index: 2;
         }
 
         .red-line {
             position: absolute;
             left: 0;
             width: 100%;
-            height: 10%;
+            height: 100px;
             background-color: red;
+            z-index: 1;
         }
 
         .green-background {
             background-color: #74CB48B5;
             border-radius: 20px;
+            padding: 20px;
         }
+
         .pokemon-card {
-            border-radius: 20px;
             text-align: center;
+            border: none;
+            --bs-card-border-color: transparent;
         }
+
         .dark-green-background {
             background-color: #74cb48a6;
             border-radius: 20px;
         }
+
         .medium-green-background {
             background-color: #74cb4877;
-            border-bottom-left-radius: 20px;
-            border-bottom-right-radius: 20px;
-            border-top-right-radius: 20px;
+            border-radius: 20px;
+            padding: 20px;
         }
-    
 
+        .card-title {
+            margin: 0.5rem 0;
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .button-container {
+            margin-top: auto;
+            margin-bottom: 20px;
+        }
     </style>
 </head>
-
 <body>
-    <div class="container text-center">
-
+    <div class="container text-center mt-4">
         <div class="logo-container">
             <div class="red-line"></div>
             <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/International_Pokémon_logo.svg"
                 alt="Pokémon Logo" class="img-fluid">
         </div>
 
-        <div class="card ml-5" style="max-width: 700px;  border-radius: 20px;">
-            <div class="row g-0 dark-green-background">
-
-                <div class="col-md-4 mt-5 ">
+        <div class="card mx-auto" style="width: 1000px; height: 1200px; border: none; --bs-card-border-color: transparent; padding-top: 5%;">
+            <div class="row g-0 dark-green-background" style="height: 40%;">
+                <div class="col-md-4 mt-5">
                     <img src="https://img.pokemondb.net/sprites/black-white/normal/bulbasaur.png"
-                        class="img-fluid rounded-start pokemon-card green-background" alt="Bulbasaur">
-
-                        
+                        class="img-fluid rounded-start pokemon-card green-background" alt="Bulbasaur" style="max-width: 300px;">
                 </div>
-
                 <div class="col-md-8">
                     <div class="card-body py-5">
-                        <div class=" green-background">
-                            <h5 class="card-title">#0001 Bulbasur</h5>
-                            <h5 class="card-title">Pokemon Semilla</h5>
-                            
-                            <h5 class="card-title">Alt &emsp; 1m
-                                <hr> Peso &emsp; 13Kg</h5>
+                        <div class="green-background">
+                            <h5 class="card-title">#0001 Bulbasaur</h5>
+                            <h5 class="card-title">Pokémon Semilla</h5>
+                            <h5 class="card-title">Altura: 1 m | Peso: 13 kg</h5>
                         </div>
-                        <div class="medium-green-background">
-                            <p align="left">Descripción</p>
-                            <p class="card-text">A bulbasur es fácil verle echándose una siesta al sol. La semilla que tiene
-                                en el lomo va creciendo cada vez más a medida que absorbe los rayos del sol</p>
+                        <div class="medium-green-background mt-3">
+                            <p class="text-start">Descripción:</p>
+                            <p class="card-text">Bulbasaur es fácil de ver echándose una siesta al sol. La semilla que
+                                tiene en el lomo va creciendo cada vez más a medida que absorbe los rayos del sol.</p>
                         </div>
-                       <div align="right">
-                        <p class="card-text"><small class="text-body-secondary">#0002>></small></p>
-                       </div>
-                       <div align="left">
-                        <p class="card-text"><small class="text-body-secondary"> 	&lt;	&lt;Pokedex Completa</small></p>
-                       </div>
-                       
-                        
-
+                        <div class="button-container d-flex justify-content-between mt-3">
+                            <a href="../PokeApi/index.html" class="btn btn-secondary">Pokedex Completa</a>
+                            <a href="#" class="btn btn-secondary">#0002</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
 
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </body>
 
 </html>
