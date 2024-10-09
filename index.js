@@ -1,36 +1,65 @@
 $(document).ready(function () {
-    getPokemonListV2();
+    fetchPokemonData();
 
-    $(document).on("click", "#btn-get-data", function () {
-        getPokemonListV2();
+    $('#btn-get-data').click(function () {
+        fetchPokemonData();
     });
 
-    function getPokemonListV2() {
-        $(".pokemon-grid").html("<img src='https://i0.wp.com/www.lanaldi.es/eu/wp-content/uploads/sites/6/2017/04/cargando-1.gif?fit=441%2C291'/>");
+    function fetchPokemonData() {
         $.ajax({
-            url: "https://pokeapi.co/api/v2/pokemon",
-            method: "GET",
-        }).done(function (resp) {
-            setTimeout(function () {
-                $(".pokemon-grid").html("");
-                var listadoPomemon = resp.results;
-                listadoPomemon.forEach(function (pokemon) {
-                    var pokemonId1 = pokemon.url.split("/")[6];
-                    var pokemonId = pokemon.url.split("/")[6].padStart(4, '0');
-                    var pokemonName = capitalizeFirstLetter(pokemon.name);
+            url: 'https://pokeapi.co/api/v2/pokemon?limit=151',
+            method: 'GET',
+            success: function (response) {
+                console.log('Fetched Pokémon list:', response.results);
 
-                    var template = `
-                        <section class="pokemon-grid">
-                            <div class="pokemon-card">
-                                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId1}.png" alt="${pokemonName}" />
-                                <div class="card-body text-center">
-                                    <h5>${pokemonId} - ${pokemonName}</h5>
-                                </div>
-                             </div>
-                        </section>`;
-                    $(".pokemon-grid").append(template);
+                // Ordenar los Pokémon por su ID
+                response.results.sort(function (a, b) {
+                    var idA = parseInt(a.url.split('/').slice(-2, -1)[0]);
+                    var idB = parseInt(b.url.split('/').slice(-2, -1)[0]);
+                    return idA - idB;
                 });
-            }, 100);
+
+                displayPokemon(response.results);
+            },
+            error: function (error) {
+                console.error('Error fetching data:', error);
+            }
+        });
+    }
+
+    function displayPokemon(pokemonList) {
+        var dataContent = $('.pokemon-grid');
+        dataContent.empty();
+
+        var requests = pokemonList.map(function (pokemon) {
+            return $.ajax({
+                url: pokemon.url,
+                method: 'GET'
+            });
+        });
+
+        $.when.apply($, requests).done(function () {
+            var responses = Array.prototype.slice.call(arguments);
+            responses.forEach(function (response) {
+                var pokemonData = response[0];
+                var pokemonCard = `
+                    <div class="pokemon-card" data-id="${pokemonData.id}">
+                        <img src="${pokemonData.sprites.front_default}" alt="${pokemonData.name}" class="pokemon-image">
+                        <div class="pokemon-info">
+                            <div class="pokemon-name">${capitalizeFirstLetter(pokemonData.name)}</div>
+                            <div class="pokemon-number">#${pokemonData.id.toString().padStart(3, '0')}</div>
+                        </div>
+                        <div class="pokemon-types">
+                            ${pokemonData.types.map(function (typeInfo) {
+                                return '<span class="type-badge ' + typeInfo.type.name + '">' + capitalizeFirstLetter(typeInfo.type.name) + '</span>';
+                            }).join('')}
+                        </div>
+                    </div>
+                `;
+                dataContent.append(pokemonCard);
+            });
+        }).fail(function (error) {
+            console.error('Error fetching Pokémon data:', error);
         });
     }
 
