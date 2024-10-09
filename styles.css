@@ -8,10 +8,12 @@ body {
 
 header {
     display: flex;
-    justify-content: center; /* Centra el logo horizontalmente */
+    justify-content: center;
+    /* Centra el logo horizontalmente */
     align-items: center;
     padding: 20px;
-    background-color: #ED4747; /* Cambia el color de fondo */
+    background-color: #ED4747;
+    /* Cambia el color de fondo */
 
 }
 
@@ -56,6 +58,7 @@ header {
     color: #fff;
     font-size: 12px;
 }
+
 .grass {
     background-color: #78C850;
 }
@@ -122,4 +125,18 @@ header {
 
 .steel {
     background-color: #B8B8D0;
+}
+
+.pokemon-name a {
+    color: inherit;
+    /* Hereda el color del elemento padre */
+    text-decoration: none;
+    /* Quita el subrayado */
+}
+
+.pokemon-name a:hover {
+    color: inherit;
+    /* Mantiene el color al pasar el ratón por encima */
+    text-decoration: none;
+    /* Mantiene el subrayado quitado al pasar el ratón por encima */
 }
